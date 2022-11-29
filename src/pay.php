@@ -11,7 +11,7 @@ $data = [
     'api' => 'pay', //Calls the make payment API
     'customer_email'  => 'user@domain.com', //Customer email name@domain.etc from your POST DATA
     'amount'  => '5000', //Amount your customer is to pay in Naira
-    'callback'  => 'https://i.demfati.com/pay/api/verify?t=',
+    'callback'  => 'https://i.demfati.com/pay/api/verify?t=', //Can be your callback url which will be leveraging from our verify.php
     'description'  => '',
     'for'  => '',
     'vat'  => 'true', //true or false; default is set to true, if set to true Value Added Tax (vat) will be charged from your customers
@@ -34,9 +34,11 @@ $result = array();
 
 if ($request) {
     $result = json_decode($request, true);
-    if($result["redirect"] === true){
-        header("Location: https://i.demfati.com/pay/".$result["link"]);
+    // You can do what so ever you wish to do with the data
+    if($result["redirect"] === true){ //Don't edit
+        header("Location: https://i.demfati.com/pay/".$result["link"]); //Don't edit
     }else{
+        // You can do what so ever you wish to do with the data
         echo print_r($result);
     }
 }
@@ -44,3 +46,4 @@ if ($request) {
 
 
 
+?>

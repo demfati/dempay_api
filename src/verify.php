@@ -29,7 +29,8 @@ $result = array();
 
 if ($request) {
     $result = json_decode($request, true);
-    if(array_key_exists('data', $result) && array_key_exists('status', $result['data'])){
+    if(array_key_exists('data', $result) && array_key_exists('status', $result['data'])){        
+        // You can do what so ever you wish to do with the data
         echo $result["data"]["status"]; // The status of your transaction, Make use of this in your application
     }else{
         print_r($result); // Make use of the array available
@@ -39,3 +40,4 @@ if ($request) {
 
 
 
+?>
